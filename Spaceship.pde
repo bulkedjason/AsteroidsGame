@@ -22,3 +22,4 @@ class Spaceship extends Floater
     myXspeed *= 0.98;
     myYspeed *= 0.98;
   }
+}
