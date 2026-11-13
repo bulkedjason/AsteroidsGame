@@ -1,12 +1,12 @@
-Spaceship ship;
 boolean up = false;
 boolean left = false;
 boolean right = false;
 Star[] sky=new Star[200];
+
 public void setup() 
 {
   size(500,500);
-  ship=new Spaceship();
+  Spaceship ship=new Spaceship();
   for(int i=0;i<200;i++){
     sky[i]=new Star();
   }
