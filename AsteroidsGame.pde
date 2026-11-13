@@ -5,7 +5,7 @@ Star[] sky=new Star[200];
 Spaceship ship = new Spaceship();
 public void setup() 
 {
-  size(500,500);
+  size(400,400);
   for(int i=0;i<200;i++){
     sky[i]=new Star();
   }
