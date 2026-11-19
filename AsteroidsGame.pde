@@ -1,18 +1,43 @@
+Spaceship ship;
+ArrayList<Asteroid> rocks;
 boolean up = false;
 boolean left = false;
 boolean right = false;
 Star[] sky=new Star[200];
-Spaceship ship = new Spaceship();
 public void setup() 
 {
-  size(400,400);
+  ship=new Spaceship();
+  size(500,500);
   for(int i=0;i<200;i++){
     sky[i]=new Star();
+  }
+  rocks=new ArrayList<Asteroid>();
+  for (int i = 0; i < 10; i++) {
+    rocks.add(new Asteroid());
   }
 }
 public void draw() 
 {
   background(0);
+  for (int i = 0; i < rocks.size(); i++) {
+    Asteroid currentRock = rocks.get(i);
+    double distance = dist(
+      (float)ship.myCenterX,
+      (float)ship.myCenterY,
+      (float)currentRock.getX(),
+      (float)currentRock.getY()
+    );
+  
+    if (distance < 20) {
+      rocks.remove(i);
+      i--;
+      rocks.add(new Asteroid());
+    }
+    else {
+      currentRock.move();
+      currentRock.show();
+    }
+  }
   for(int i=0;i<200;i++){
     sky[i].show();
   }
